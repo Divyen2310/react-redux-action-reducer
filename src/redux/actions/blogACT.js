@@ -1,9 +1,13 @@
-import { getBlogApiRequest } from "../../api/app/blog/service";
+import { getBlogsApiRequest } from "../../api/app/blog/serviceBlogs";
 
 // Blog Actions ↓ ↓
 export const GET_BLOG_LOAD = "[BLOG] GET_BLOG_LOAD";
 export const GET_BLOG = "[BLOG] GET_BLOG";
 export const GET_BLOG_ERROR = "[BLOG] GET_BLOG_ERROR";
+
+// export const GET_BLOG_LOAD_BY_ID = "[BLOG] GET_BLOG_LOAD_BY_ID";
+// export const GET_BLOG_BY_ID = "[BLOG] GET_BLOG_BY_ID";
+// export const GET_BLOG_BY_ID_ERROR = "[BLOG] GET_BLOG_BY_ID_ERROR";
 // Blog Actions ↑ ↑
 
 export const getBlogs = (queries) => {
@@ -13,8 +17,8 @@ export const getBlogs = (queries) => {
         type: GET_BLOG_LOAD,
         payload: {},
       });
-
-      const response = await getBlogApiRequest(queries);
+      // console.log("queries",queries);
+      const response = await getBlogsApiRequest(queries);
       // console.log("response 1 ",response);
       // const { count, rows } = response;
       dispatch({
@@ -30,3 +34,27 @@ export const getBlogs = (queries) => {
     }
   };
 };
+
+// export const getBlogDataById = (BlogId) => {
+//   return async (dispatch) => {
+//     try {
+//       dispatch({
+//         type: GET_BLOG_LOAD_BY_ID,
+//         payload: {},
+//       });
+//       console.log("BlogId",BlogId);
+//       const responce = await getBlogById(BlogId);
+//       console.log("responce", responce);
+
+//       dispatch({
+//         type: GET_BLOG_BY_ID,
+//         payload: responce,
+//       });
+//     } catch (error) {
+//       dispatch({
+//         type: GET_BLOG_BY_ID_ERROR,
+//         payload: error.message,
+//       });
+//     }
+//   };
+// };

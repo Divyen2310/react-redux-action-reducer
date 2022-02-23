@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getBlogApiRequest = async (queries) => {
+export const getBlogsApiRequest = async (queries) => {
   return new Promise((resolve, reject) => {
     // console.log("queries", queries);
     const URL = `https://jsonplaceholder.typicode.com/posts`;
@@ -24,6 +24,28 @@ export const getBlogApiRequest = async (queries) => {
       })
       .catch((error) => {
         //   Sentry.captureException(error);
+        error.response && error.response.data.message
+          ? reject({ message: error.response.data.message })
+          : reject({ message: `Something Went Wrong` });
+      });
+  });
+};
+
+export const getBlogById = async (BlogId) => {
+  return new Promise((resolve, reject) => {
+    // console.log("BlogId api",BlogId);
+    const URL = `https://jsonplaceholder.typicode.com/posts/${BlogId}`;
+    // console.log("URL",URL);
+    axios
+      .get(URL)
+      .then((response) => {
+        if (response.status === 200) {
+          // console.log("res",response.data);
+          resolve(response.data);
+        }
+      })
+      .catch((error) => {
+        // Sentry.captureException(error);
         error.response && error.response.data.message
           ? reject({ message: error.response.data.message })
           : reject({ message: `Something Went Wrong` });
