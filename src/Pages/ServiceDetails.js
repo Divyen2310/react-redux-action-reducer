@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button ,Spinner } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, Spinner } from 'reactstrap';
 
 
 const ServiceDetails = () => {
@@ -39,7 +39,35 @@ const ServiceDetails = () => {
                 <Spinner />
             ) :
                 <>
-                    <Button color="danger">Danger!</Button>
+                    {/* <Button color="danger">Danger!</Button> */}
+                    <Form className="container">
+                        <legend>
+                            reactstrap form
+                        </legend>
+                        <FormGroup>
+                            <Label for="blogTitle">Email</Label>
+                            <Input
+                                id="blogTitle"
+                                name="title"
+                                placeholder="Title"
+                                type="text"
+                                defaultValue={blogDeails.title}
+                                style={{ padding: "7px" }}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="userId">userId</Label>
+                            <Input
+                                id="userId"
+                                name="userId"
+                                placeholder="userId"
+                                type="text"
+                                disabled
+                                defaultValue={blogDeails.userId}
+                            />
+                        </FormGroup>
+                    </Form>
+                    
 
                 </>
             }
