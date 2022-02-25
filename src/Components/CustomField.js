@@ -20,9 +20,9 @@ const CustomField = ({ name, lable }) => <Field name={name}>
         meta,
     }) => (
         <>
-            {/* <Pre>
+            <Pre>
                 {JSON.stringify(field)}{console.log("field", field)}{JSON.stringify(meta)}
-            </Pre> */}
+            </Pre>
             <FormGroup row>
                 <Label sm="2" for={field.name}>{lable}<span className="mandatory">*</span> </Label>
                 <Col sm="10">

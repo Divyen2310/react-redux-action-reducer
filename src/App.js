@@ -28,11 +28,11 @@ function App() {
             className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")} >Formik Form
           </NavLink>
         </NavItem>
-        {/* <NavItem>
+        <NavItem>
           <NavLink 
           to='/dropezone'
           className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")} >Drope Zone</NavLink>
-        </NavItem> */}
+        </NavItem>
       </Nav>
       <div className='py-1' >
         <Routes>

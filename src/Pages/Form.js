@@ -52,19 +52,19 @@ const FormikForm = () => {
                             {JSON.stringify({ ...rest })}
                         </Pre> */}
 
-                {/* {({ touched, errors }) => (
+                {({ touched, errors }) => (
                     <>
                         <Pre>{JSON.stringify(touched)}</Pre>
-                        <Pre>{JSON.stringify(errors)}</Pre> */}
-                <Form>
-                    <CustomField name="username" lable='User Name' />
-                    <CustomField name="name" lable='Name' />
-                    <CustomField name="email" lable='Email' />
-                    <CustomField name="phone_number" lable='Phone Number' />
-                    <Button color="primary" outline type="submit" >Submit</Button>
-                </Form>
-                {/* </>
-                )} */}
+                        <Pre>{JSON.stringify(errors)}</Pre>
+                        <Form>
+                            <CustomField name="username" lable='User Name' />
+                            <CustomField name="name" lable='Name' />
+                            <CustomField name="email" lable='Email' />
+                            <CustomField name="phone_number" lable='Phone Number' />
+                            <Button color="primary" outline type="submit" >Submit</Button>
+                        </Form>
+                    </>
+                )}
             </Formik>
         </div >
     )

@@ -1,3 +1,4 @@
+
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components';
@@ -24,14 +25,33 @@ const StyledImg = styled.img`
 function MyDropzone() {
     const [myFiles, setmyFiles] = React.useState([]);
     console.log("myFiles", myFiles);
+
+
+    const checkFile=(newFile)=>{
+        let Error=false;
+        myFiles.forEach(item=>{
+            if(newFile === item.name){
+                Error=true;
+            }
+        })
+        console.log("Err",Error);
+        return Error
+    }
     const onDrop = useCallback(acceptedFiles => {
         // Do something with the files
         console.log("acceptedFiles", acceptedFiles);
+        // console.log("acceptedFiles",acceptedFiles);
         const tempFiles = myFiles;
         acceptedFiles.forEach(i => {
             console.log("i", i);
-            i.preview = URL.createObjectURL(i)
-            tempFiles.push(i)
+
+            if (checkFile(i.name)){
+                alert("duplicate")
+            }else{
+                 i.preview = URL.createObjectURL(i)
+                 tempFiles.push(i)
+            }
+            
         })
         setmyFiles(tempFiles);
     }, [])
