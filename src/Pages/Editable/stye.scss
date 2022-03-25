@@ -1,0 +1,9 @@
+[contentEditable=true]:empty:not(:focus)::before{
+    content:attr(data-ph)
+}
+.StyledDiv{
+    border-radius:4px;
+    padding:5px;
+    margin:5px;
+    background-color: aliceblue;
+}
