@@ -8,41 +8,29 @@ import { Container, Nav, NavItem } from "reactstrap";
 import DropeZone from "./Pages/DropeZone";
 import Draggable from "./Pages/Drag/Draggable";
 import Editable from "./Pages/Editable/Editable";
+import ReactSelect from "./Pages/ReactSelect";
+import ContactForm from "./Pages/ContactForm";
+
+const CustomNavLink = ({ to, name }) => (
+  <NavItem>
+    <NavLink to={to} className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
+      {name}
+    </NavLink>
+  </NavItem>
+)
 
 function App() {
   return (
     <Container>
       <Nav>
-        {/* <NavItem> */}
-        <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-          Home
-        </NavLink>
-
-        <NavItem>
-          <NavLink to="/service" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-            Service{" "}
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/form" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-            Formik Form
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/dropezone" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-            Drope Zone
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/drag" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-            Drag
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/editable" className={({ isActive }) => "nav-link" + (isActive ? " activeNav" : "")}>
-            Editable
-          </NavLink>
-        </NavItem>
+        <CustomNavLink to="/" name="Home" />
+        <CustomNavLink to="/service" name="Service" />
+        <CustomNavLink to="/form" name="Formik Form" />
+        <CustomNavLink to="/dropezone" name="Drope Zone" />
+        <CustomNavLink to="/drag" name="Drag" />
+        <CustomNavLink to="/editable" name="Editable" />
+        <CustomNavLink to="/reactSelect" name="React Select" />
+        <CustomNavLink to="/firebaseform" name="FireBase Form" />
       </Nav>
       <div className="py-1">
         <Routes>
@@ -50,11 +38,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="service" element={<Service />} />
           <Route path="serviceDetails/:id" element={<ServiceDetails />} />
-
           <Route path="form" element={<FormikForm />} />
           <Route path="dropezone" element={<DropeZone />} />
           <Route path="drag" element={<Draggable />} />
           <Route path="editable" element={<Editable />} />
+          <Route path="reactSelect" element={<ReactSelect />} />
+          <Route path="firebaseform" element={<ContactForm />} />
           <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
       </div>

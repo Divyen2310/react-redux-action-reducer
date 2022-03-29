@@ -10,7 +10,7 @@ export const Pre = styled.div`
     padding: 5px;
     background-color: #d6d2d2b5;
     display: none;   
-    /* visibility: hidden;  // comoonent wraper show  */
+    /* visibility: hidden;  // component wrapper show  */
 `
 
 const CustomField = ({ name, lable }) => <Field name={name}>
