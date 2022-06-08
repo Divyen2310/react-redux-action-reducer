@@ -11,6 +11,7 @@ import Editable from "./Pages/Editable/Editable";
 import ReactSelect from "./Pages/ReactSelect";
 import ContactForm from "./Pages/ContactForm";
 import ImageWithStatusText from "./Pages/ImageLoading";
+import Editor from "./Pages/WYSIWYG/wysiwyg";
 
 const CustomNavLink = ({ to, name }) => (
   <NavItem>
@@ -33,6 +34,7 @@ function App() {
         <CustomNavLink to="/reactSelect" name="React Select" />
         <CustomNavLink to="/firebaseform" name="FireBase Form" />
         <CustomNavLink to="/imageloading" name="Image" />
+        <CustomNavLink to="/wysiwyg" name="WYSIWYG" />
       </Nav>
       <div className="py-1">
         <Routes>
@@ -47,6 +49,7 @@ function App() {
           <Route path="reactSelect" element={<ReactSelect />} />
           <Route path="firebaseform" element={<ContactForm />} />
           <Route path="imageloading" element={<ImageWithStatusText />} />
+          <Route path="wysiwyg" element={<Editor />} />
           <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
       </div>
